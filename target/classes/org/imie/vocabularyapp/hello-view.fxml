@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.VBox?>
 
 <VBox fx:controller="org.imie.vocabularyapp.HelloController"
       xmlns:fx="http://javafx.com/fxml"
-      alignment="TOP_CENTER" spacing="15.0">
+      spacing="20.0"
+      alignment="TOP_CENTER"
+      style="-fx-background-color: linear-gradient(to bottom, #edf2f7, #cbd5e0);">
     <padding>
-        <Insets top="20" bottom="20" left="20" right="20"/>
+        <Insets top="20" bottom="20" left="30" right="30"/>
     </padding>
 
-    <Label text="Vocabulaire - Associez les mots" style="-fx-font-size: 16px;"/>
+    <!-- IMAGE D'EN-TÊTE -->
+    <ImageView fitHeight="150" fitWidth="600">
+        <image>
+            <Image url="https://cdn.pixabay.com/photo/2016/11/29/05/08/learn-1868728_1280.jpg"/>
+        </image>
+    </ImageView>
 
-    <GridPane fx:id="gridPane" hgap="20" vgap="10">
-        <padding>
-            <Insets top="10" bottom="10"/>
-        </padding>
-    </GridPane>
+    <!-- TITRE PRINCIPAL -->
+    <Label text="Jeu de Vocabulaire"
+           style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
 
-    <Button text="Valider" onAction="#onValidateButtonClick"/>
-    <Label fx:id="scoreLabel" text="Score : " style="-fx-font-weight: bold;"/>
+    <!-- ZONE DE JEU -->
+    <ScrollPane fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-padding: 10;">
+        <GridPane fx:id="gridPane" hgap="30" vgap="15"
+                  style="-fx-padding: 20;
+                         -fx-background-color: white;
+                         -fx-border-radius: 12;
+                         -fx-background-radius: 12;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 2);">
+            <padding>
+                <Insets top="15" left="15" right="15" bottom="15"/>
+            </padding>
+        </GridPane>
+    </ScrollPane>
+
+    <!-- BOUTON DE VALIDATION -->
+    <Button text="Valider mes réponses"
+            onAction="#onValidateButtonClick"
+            style="-fx-font-size: 16px;
+                   -fx-background-color: #4299e1;
+                   -fx-text-fill: white;
+                   -fx-padding: 10 30;
+                   -fx-background-radius: 30;
+                   -fx-effect: dropshadow(gaussian, rgba(66,153,225,0.6), 6, 0.4, 0, 1);"/>
+
+    <!-- SCORE -->
+    <Label fx:id="scoreLabel"
+           text="Score : "
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
 </VBox>
